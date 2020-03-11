@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Hello world using cloud formation and ci/cd
+Resources:
+  HelloWorldCloudFormation:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: com.amazonaws.greengrass.examples.HelloWorld::handleRequest
+      Runtime: java8
+      CodeUri: ./build/distributions
+      Description: 'Hello world lambda function using Cloud formation'
+      MemorySize: 512
+      Timeout: 30
+      Role: 'arn:aws:iam::265589871906:role/MyLambdaRole'
